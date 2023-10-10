@@ -17,8 +17,6 @@ export default {
   <Header/>
   <Main/>
   <Footer/>
-
-  <h1>App</h1>
 </template>
 
 <style lang="scss">
