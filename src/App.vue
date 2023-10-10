@@ -21,6 +21,6 @@ export default {
   <h1>App</h1>
 </template>
 
-<style scoped>
-
+<style lang="scss">
+@use './scss/main.scss'
 </style>
