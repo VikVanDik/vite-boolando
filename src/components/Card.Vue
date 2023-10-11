@@ -23,21 +23,21 @@ export default {
 
 <div class="product">
   <div class="disappear">
-    <img :src="`../assets/img/${cardObj.primaryImage}`" alt="Relaxed Tee" title="Relaxed Tee" class="img">
-    <img src="../assets/img/1b.webp" alt="Relaxed TeeB" title="Relaxed TeeB" class="imgb">
+    <img :src="`/src/assets/img/${cardObj.primaryImage}`" alt="Relaxed Tee" title="Relaxed Tee" class="img">
+    <img :src="`/src/assets/img/${cardObj.secondaryImage}`" alt="Relaxed TeeB" title="Relaxed TeeB" class="imgb">
     <div class="disappearheart">
       <span class="heart"> &hearts; </span>
       <span class="rheart"> &hearts; </span>
     </div>
-    <span class="discount"> {{cardObj.discount}} </span>
-    <span class="eco">Sostenibilità</span>
+    <span class="discount" v-if="cardObj.discount === null ? '' : 'd-none'"> {{cardObj.discount}} </span>
+    <span class="eco" v-if="cardObj.sostenibilita === true ? '' : 'd-none'">Sostenibilità</span>
   </div>
   
   
   <span class="brand">{{ cardObj.marca }}</span>
   <h3 class="item">{{ cardObj.modello }}</h3>
-  <span class="price"> 14,99 &euro;</span>
-  <span class="old-price"> 29,99 &euro;</span>
+  <span class="price"> {{ cardObj.lastPrice }} &euro;</span>
+  <span class="old-price" v-if="cardObj.fullPrice === null ? '' : 'd-none'"> {{ cardObj.fullPrice }} &euro;</span>
 </div>
 
 </template>
