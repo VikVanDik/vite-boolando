@@ -1,4 +1,7 @@
 <script>
+
+import units from '../data/units'
+
 export default {
   name : 'Header'
 }
@@ -8,9 +11,10 @@ export default {
   <header>
     <div class="container flex head">
       <ul>
-        <li><a href="#">Donna</a></li>
-        <li><a href="#">Uomo</a></li>
-        <li><a href="#">Bambino</a></li>
+        <li 
+        v-for = "(unit, index) in units"
+        :key ="index"><a :href="unit.href">{{ unit.unit }}</a></li>
+        
       </ul>
 
       <img src="../assets/img/boolean-logo.png" alt="Logo" class="logo">
@@ -28,6 +32,7 @@ export default {
 <style lang="scss" scoped>
 
 @use '../scss/partials/variabiles' as *;
+
 .head{
   justify-content: space-between;
   align-items: center;
@@ -42,21 +47,21 @@ header {
   z-index: 999;
 }
 
-.container ul li {
-  list-style: none;
-  display: inline-block;
-  a {
-    text-decoration: none;
-    color: white;
+.container ul {
+  li {
+    list-style: none;
+    display: inline-block;
+    a {
+      text-decoration: none;
+      color: white;
+    }
   }
-}
-
-.container ul:first-child li a {
-  margin-right: 5px;
-}
-
-.container ul:last-child li a {
-  margin-left: 5px;
+  &:first-child li a {
+    margin-right: 10px;
+  }
+  &:last-child li a {
+    margin-left: 10px;
+  }
 }
 
 .logo {
