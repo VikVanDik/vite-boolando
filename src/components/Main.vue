@@ -1,4 +1,7 @@
 <script>
+
+import Card from './Card.Vue';
+
 export default {
   name : 'Main'
 }
