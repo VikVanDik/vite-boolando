@@ -1,13 +1,15 @@
 <script>
 
 import infos from '../data/infos'
+import socials from '../data/socials'
 
 export default {
   name : 'Footer',
 
   data (){
     return {
-      infos
+      infos,
+      socials
     }
   }
 }
@@ -29,11 +31,10 @@ export default {
       <div class="right-foot">
         <p class="search">Trovaci anche su</p>
         <ul class="flex">
-          <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
-          <li><a href="#"><i class="fa-brands fa-square-facebook"></i></a></li>
-          <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
-          <li><a href="#"><i class="fa-brands fa-pinterest"></i></a></li>
-          <li><a href="#"><i class="fa-brands fa-youtube"></i></a></li>
+          <li
+          v-for ="(social, index) in socials"
+          :key ="index"><a :href="social.href" v-html="social.icon"></a></li>
+          
         </ul>
       </div>
     </div>
