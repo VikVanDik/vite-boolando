@@ -1,6 +1,15 @@
 <script>
+
+import infos from '../data/infos'
+
 export default {
-  name : 'Footer'
+  name : 'Footer',
+
+  data (){
+    return {
+      infos
+    }
+  }
 }
 </script>
 
@@ -10,9 +19,10 @@ export default {
       <div class="left-foot">
         <h4>Boolando S.R.L.</h4>
         <ul>
-          <li><a href="#">Informazioni Legali</a></li>
-          <li><a href="#">Informativa sulla Privacy</a></li>
-          <li><a href="">Diritto di recesso</a></li>
+          <li
+          v-for ="(info, index) in infos"
+          :key="index"><a :href="info.href">{{ info.text }}</a></li>
+          
         </ul>
       </div>
   
