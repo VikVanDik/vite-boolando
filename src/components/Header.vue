@@ -3,7 +3,11 @@
 import units from '../data/units'
 
 export default {
-  name : 'Header'
+  name : 'Header',
+
+  data () {
+    return units
+  }
 }
 </script>
 
@@ -13,8 +17,7 @@ export default {
       <ul>
         <li 
         v-for = "(unit, index) in units"
-        :key ="index"><a :href="unit.href">{{ unit.unit }}</a></li>
-        
+        :key ="index"><a :href="unit.href">{{ unit.unitName }}</a></li>
       </ul>
 
       <img src="../assets/img/boolean-logo.png" alt="Logo" class="logo">
