@@ -1,12 +1,16 @@
 <script>
 
 import units from '../data/units'
+import icons from '../data/icons'
 
 export default {
   name : 'Header',
 
   data () {
-    return units
+    return {
+      units,
+      icons
+    }
   }
 }
 </script>
@@ -23,9 +27,10 @@ export default {
       <img src="../assets/img/boolean-logo.png" alt="Logo" class="logo">
 
       <ul>
-        <li><a href="#"><i class="fa-regular fa-user"></i></a></li>
-        <li><a href="#"><i class="fa-regular fa-heart"></i></a></li>
-        <li><a href="#"><i class="fa-solid fa-bag-shopping"></i></a></li>
+        <li
+        v-for = "(icon, index) in icons"
+        :key = "index"><a :href="icon.href" v-html="icon.iconName"></a></li>
+        
       </ul>
 
     </div>
