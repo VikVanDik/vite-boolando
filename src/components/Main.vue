@@ -1,10 +1,17 @@
 <script>
 import Card from './Card.vue'
+import products from '../data/products'
 
 
 
 export default {
   name : 'Main',
+
+  data () {
+    return {
+      products
+    }
+  },
 
   components : {
     Card
@@ -16,13 +23,13 @@ export default {
   <main>
     <div class="container flex clothes">
 
-      <Card />
+      <Card v-for="card in products" :cardObj="card" :key="card.id"/>
       
     </div>
   </main>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss" >
 
 @use '../scss/partials/variabiles' as *;
 .img {
